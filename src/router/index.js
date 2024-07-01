@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/recordOverview',
+      name: 'recordOverview',
+      component: () => import('../views/RecordOverviewtView.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/'
     }
