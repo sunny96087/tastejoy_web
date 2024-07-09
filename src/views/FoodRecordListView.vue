@@ -1,8 +1,7 @@
 <script setup>
 
 import { ref,watch } from 'vue';
-import NavBar from '../components/NavBar.vue';
-import { useCountryStore } from '../stores/counter.js';
+import { useCountryStore } from '../stores/country.js';
 
   //取得縣市資料
   const countries = ref([]);
@@ -45,7 +44,6 @@ import { useCountryStore } from '../stores/counter.js';
 </script>
 
 <template>
-  <NavBar/>
   <div class="max-w-7xl mx-auto my-0 bg-custom-color">
     <header class="w-11/12 mb-4 pt-4 md:flex justify-around">
       <div class="w-1/4 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-hidden md:w-auto md:mb-0 flex items-center">
@@ -72,7 +70,7 @@ import { useCountryStore } from '../stores/counter.js';
       <div class="w-1/2 m-0 p-1 border-2 border-[#a49d7d] rounded-full flex justify-between">
         <input class="p-2 ml-2 text-[#a49d7d] border-0 border-[#FFFDF6] bg-[#FFFDF6]" type="text" placeholder="搜尋美食記錄">
         <button class="p-2 bg-[#FFFDF6] rounded-full border-0 cursor-pointer">
-          <img src="../assets/NavBar/search.png" alt="search-icon" style="width:20px; height:20px;">
+          <img src="../assets/images/FoodRecordList/search.png" alt="search-icon" style="width:20px; height:20px;">
         </button>
       </div>
       <div class="w-1/6 border-2 border-[#a49d7d] rounded-full bg-[#6F6D55] flex justify-center">
@@ -103,14 +101,14 @@ import { useCountryStore } from '../stores/counter.js';
             <td class="p-3">{{ record.businessTime }}</td>
             <td class="p-3">{{ record.phone }}</td>
             <td class="p-3">{{ record.score }}</td>
-            <td class="p-3"><img src="../assets/NavBar/checkButton.png" alt="check-icon" style="width:28px; height:28px;"></td>
-            <td class="p-3"><img src="../assets/NavBar/NavButton.png" alt="nav-icon" style="width:28px; height:28px;"></td>
-            <td class="p-3"><img src="../assets/NavBar/ShareButton.png" alt="share-icon" style="width:28px; height:28px;"></td>
+            <td class="p-3"><img src="../assets/images/FoodRecordList/checkButton.png" alt="check-icon" style="width:28px; height:28px;"></td>
+            <td class="p-3"><img src="../assets/images/FoodRecordList/NavButton.png" alt="nav-icon" style="width:28px; height:28px;"></td>
+            <td class="p-3"><img src="../assets/images/FoodRecordList/ShareButton.png" alt="share-icon" style="width:28px; height:28px;"></td>
           </tr>
         </tbody>
       </table>
       <div v-else class="mt-10 flex justify-center">
-        <img src="../assets/NavBar/NoData.png" alt="">
+        <img src="../assets/images/FoodRecordList/NoData.png" alt="">
       </div>
       
     </main>
