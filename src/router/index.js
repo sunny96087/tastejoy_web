@@ -38,6 +38,11 @@ const router = createRouter({
       component: () => import('../views/ArticleView.vue')
     },
     {
+      path: '/friendlist',
+      name: 'friendlist',
+      component: () => import('../views/FriendList.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/'
 
