@@ -21,7 +21,6 @@ import NavBar from './components/NavBar.vue'
       </nav>
     </div> -->
   </header>
-
   <RouterView />
 </template>
 
