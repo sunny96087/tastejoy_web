@@ -84,7 +84,7 @@ import { RouterLink, RouterView } from 'vue-router'
             </li>
             <li v-if="isNotice" class="m-5 text-center bg-custom-alert-color">
               <RouterLink to="/friend" class="text-[#6F6D55]">
-                好友送美食來囉
+                好友送美食來囉  
                 <img src="../assets/images/NavBar/Cheers.png" class="inline" alt="cheer">
               </RouterLink> 
             </li>

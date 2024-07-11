@@ -1,7 +1,42 @@
 <script setup>
 
-import { ref,watch } from 'vue';
+import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue';
 import { useCountryStore } from '../stores/country.js';
+
+  // 是否要顯示功能表
+  const isMenuOpen = ref(false);
+   // 判斷當前銀幕是否為小銀幕(below 768px)
+  const isSmallScreen = ref(false);
+  // 小銀幕中是否展開功能列表
+  // 預設是不展開
+  const isMobileMenuOpen = ref(false);
+  
+
+  const checkScreenSize = () => {
+    isSmallScreen.value = window.matchMedia('(max-width: 768px)').matches;
+    if (!isSmallScreen.value) {
+      isMenuOpen.value = true; // 當螢幕尺寸大於768px時，自動顯示選單
+    }
+  };
+
+  const toggleMenu = () => {
+    isMenuOpen.value = !isMenuOpen.value;
+    // 按下按鈕會toggle狀態
+    isMobileMenuOpen.value = !isMobileMenuOpen.value;
+  };
+
+  const shouldShowMenu = computed(() => {
+    return isMenuOpen.value || !isSmallScreen.value;
+  });
+
+  onMounted(() => {
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+  });
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', checkScreenSize);
+  });
 
   //取得縣市資料
   const countries = ref([]);
@@ -45,15 +80,36 @@ import { useCountryStore } from '../stores/country.js';
 
 <template>
   <div class="max-w-7xl mx-auto my-0 bg-custom-color">
-    <header class="w-11/12 mb-4 pt-4 md:flex justify-around">
-      <div class="w-1/4 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-hidden md:w-auto md:mb-0 flex items-center">
+    <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
+      <div class="w-1/4 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
         <input type="radio" id="list" name="view" class="hidden peer/list" checked />
-        <label for="list" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/list:bg-[#6b6142] peer-checked/list:text-white border-b-0 border-gray-400 rounded-full">列表</label>
-        
+        <label for="list" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/list:bg-[#6b6142] peer-checked/list:text-white border-b-0 border-gray-400 rounded-full">
+          列表
+        </label>
         <input type="radio" id="map" name="view" class="hidden peer/map" />
-        <label for="map" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/map:bg-[#6b6142] peer-checked/map:text-white border-b-0 border-gray-400 rounded-full">地圖</label>
+        <label for="map" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/map:bg-[#6b6142] peer-checked/map:text-white border-b-0 border-gray-400 rounded-full">
+          地圖
+        </label>
       </div>
-      <div class="w-1/6 mb-2 border-2 border-[#a49d7d] rounded-full overflow-hidden p-2 md:w-auto md:mb-0">
+
+      <!-- 手機版收合展開功能按鈕 -->
+      <div class="absolute top-7 right-0 md:hidden">
+        <div v-if="isMobileMenuOpen" class="flex justify-center">
+          <span class="font-light text-[#BDB890] text-right mr-4">收合</span>
+          <button @click="toggleMenu">
+            <img src="../assets/images/FoodRecordList/downArrow.png" alt="open" style="width:20px;height:20px;">
+          </button>
+        </div>
+        
+        <div v-else class="flex justify-center">
+          <span class="font-light text-[#BDB890] text-right mr-4">更多功能</span>
+          <button @click="toggleMenu">
+            <img src="../assets/images/FoodRecordList/rightArrow.png" alt="close" style="width:30px;height:30px;">
+          </button>
+        </div>
+      </div>
+
+      <div v-if=shouldShowMenu class="w-full mb-2 border-2 border-[#a49d7d] rounded-full overflow-hidden p-2 md:w-auto md:mb-0">
         <select class="border-0 text-[#a49d7d] bg-[#FFFDF6] md: block" v-model="selectedCountry">  
           <option value="全部地區">全部地區</option>
           <option v-for="(country,id) in countries" :key="id" :value="country">
@@ -67,15 +123,16 @@ import { useCountryStore } from '../stores/country.js';
           </option>
         </select>
       </div>
-      <div class="w-1/2 m-0 p-1 border-2 border-[#a49d7d] rounded-full flex justify-between">
+      <div v-if=shouldShowMenu class="w-full mb-2 p-1 border-2 border-[#a49d7d] rounded-full flex justify-between md:w-1/2 md:mb-0">
         <input class="p-2 ml-2 text-[#a49d7d] border-0 border-[#FFFDF6] bg-[#FFFDF6]" type="text" placeholder="搜尋美食記錄">
         <button class="p-2 bg-[#FFFDF6] rounded-full border-0 cursor-pointer">
           <img src="../assets/images/FoodRecordList/search.png" alt="search-icon" style="width:20px; height:20px;">
         </button>
       </div>
-      <div class="w-1/6 border-2 border-[#a49d7d] rounded-full bg-[#6F6D55] flex justify-center">
-        <button class="p-2 text-[#a49d7d] cursor-pointer">新增</button>
+      <div v-if=shouldShowMenu class="w-full flex justify-end md:w-1/6">
+        <button class="w-1/6 p-2 text-[#a49d7d] cursor-pointer border-2 border-[#a49d7d] rounded-full bg-[#6F6D55] md:w-full">新增</button>
       </div>
+    
     </header>
     <main class="h-screen text-[#6F6D55]">
       <table v-if="!isNoData" class="w-11/12 mx-auto border-collapse">
