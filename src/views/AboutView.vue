@@ -1,9 +1,67 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="relative h-screen overflow-x-hidden">
+    <div class="absolute inset-0">
+      <div class="w-[1280px] h-[360px] absolute inset-0 mx-auto">
+        <img 
+          src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__"
+          alt="背景圖"
+          class="w-full h-full object-cover filter opacity-8"
+        >
+      </div>
+      <div class="w-[1280px] h-[360px] absolute inset-0 bg-black opacity-35"></div>
+    </div>
+    <div class="absolute left-10 top-24 text-[#EBE5BA] space-y-4">
+      <h1 class="text-4xl font-bold">加入食享</h1>
+      <h2 class="text-2xl">一起來探索你的美食足跡，發現世界各地的美味佳餚</h2>
+      <h3 class="text-lg w-3/6">
+        食享 (TasteJoy) 是一款專為美食愛好者設計的網站，
+        讓您可以在全球範圍內探索、發現並記錄各種美食的足跡。
+        無論您身處何地，我們都將帶您走進本地的美食天堂。
+      </h3>
+    </div>
   </div>
+
+  <div class="absolute left-10 top-[500px] bg-white w-full text-center">
+    <h3 class="text-xl font-semibold text-[#6F6D55] mt-2 mb-2">功能介紹</h3>
+    <div class="flex justify-center space-x-6">
+      <div class="w-1/5 max-w-[220px]">
+        <a href="#records">
+          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片1" class="w-full h-auto rounded-lg cursor-pointer">
+          <p class="text-xs text-[#6F6D55] mt-2">紀錄自己的美食地圖</p>
+        </a>
+      </div>
+      <div class="w-1/5 max-w-[220px]">
+        <a href="#categories">
+          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片2" class="w-full h-auto rounded-lg cursor-pointer">
+        <p class="text-xs text-[#6F6D55] mt-2">自訂美食分類</p>
+        </a>
+      </div>
+      <div class="w-1/5 max-w-[220px]">
+        <a href="#randomSelected">
+          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片3" class="w-full h-auto rounded-lg cursor-pointer">
+          <p class="text-xs text-[#6F6D55] mt-2">隨機選美食</p>
+        </a>
+      </div>
+      <div class="w-1/5 max-w-[220px]">
+        <a href="#articlesSharing">
+          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片4" class="w-full h-auto rounded-lg cursor-pointer">
+          <p class="text-xs text-[#6F6D55] mt-2">美食文章分享</p>
+        </a>
+      </div>
+      <div class="w-1/5 max-w-[220px]">
+        <a href="#shareWithFriends">
+          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片5" class="w-full h-auto rounded-lg cursor-pointer">
+          <p class="text-xs text-[#6F6D55] mt-2">和朋友分享美食紀錄</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
 </template>
 
-<style>
-
+<style scoped>
+body {
+  overflow-x: hidden;
+}
 </style>
