@@ -3,7 +3,7 @@
     <div class="absolute inset-0">
       <div class="w-[1280px] h-[360px] absolute inset-0 mx-auto">
         <img 
-          src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__"
+          src="../assets/images/pic.jpg"
           alt="背景圖"
           class="w-full h-full object-cover filter opacity-8"
         >
@@ -21,47 +21,45 @@
     </div>
   </div>
 
-  <div class="absolute left-10 top-[500px] bg-white w-full text-center">
+  <div class="absolute left-10 top-[500px] bg-white text-center">
     <h3 class="text-xl font-semibold text-[#6F6D55] mt-2 mb-2">功能介紹</h3>
     <div class="flex justify-center space-x-6">
-      <div class="w-1/5 max-w-[220px]">
+      <div class="w-1/5 aspect-w-1 aspect-h-1 max-w-[220px] max-h-[220px]">
         <a href="#records">
-          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片1" class="w-full h-auto rounded-lg cursor-pointer">
+          <img src="../assets/images/pic.jpg" alt="功能圖片1" class="w-full h-full object-cover rounded-lg cursor-pointer">
           <p class="text-xs text-[#6F6D55] mt-2">紀錄自己的美食地圖</p>
         </a>
       </div>
-      <div class="w-1/5 max-w-[220px]">
+      <div class="w-1/5 aspect-w-1 aspect-h-1 max-w-[220px]">
         <a href="#categories">
-          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片2" class="w-full h-auto rounded-lg cursor-pointer">
-        <p class="text-xs text-[#6F6D55] mt-2">自訂美食分類</p>
+          <img src="../assets/images/pic.jpg" alt="功能圖片2" class="w-full h-full object-cover rounded-lg cursor-pointer">
+          <p class="text-xs text-[#6F6D55] mt-2">自訂美食分類</p>
         </a>
       </div>
-      <div class="w-1/5 max-w-[220px]">
+      <div class="w-1/5 aspect-w-1 aspect-h-1 max-w-[220px]">
         <a href="#randomSelected">
-          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片3" class="w-full h-auto rounded-lg cursor-pointer">
+          <img src="../assets/images/pic.jpg" alt="功能圖片3" class="w-full h-full object-cover rounded-lg cursor-pointer">
           <p class="text-xs text-[#6F6D55] mt-2">隨機選美食</p>
         </a>
       </div>
-      <div class="w-1/5 max-w-[220px]">
+      <div class="w-1/5 aspect-w-1 aspect-h-1 max-w-[220px]">
         <a href="#articlesSharing">
-          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片4" class="w-full h-auto rounded-lg cursor-pointer">
+          <img src="../assets/images/pic.jpg" alt="功能圖片4" class="w-full h-full object-cover rounded-lg cursor-pointer">
           <p class="text-xs text-[#6F6D55] mt-2">美食文章分享</p>
         </a>
       </div>
-      <div class="w-1/5 max-w-[220px]">
+      <div class="w-1/5 aspect-w-1 aspect-h-1 max-w-[220px]">
         <a href="#shareWithFriends">
-          <img src="https://s3-alpha-sig.figma.com/img/380c/4e9a/a66706e109cf3dea10402edaa934e34d?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NgMxUiMlqpc2fMkuPlFOElDgH6KnwkmOo1oKn7qlmQJ6DyXGpZNgTQ-DxeahSkVW7f8GuMU9rT7U47MWj2wGjOQwybWRFtbs5dQdGuh41T7z9K582PJ0l761ObRdX5yivjVIdqcHozvanybjt1FS2oFVPB867KnIt4A6ty7f9GCssHS2NFwbIArVKQLRf9sjvTT1duPe5c2N2Y9ugmEK~z2xFyziAhm6CX9q6ayybxjKDeJRB0c-UDeYctPD1bSGjhmcbycjmM2O2BkEMgRu~gtUCv1o-p~q8sF41AWLw-4Hwn75nxDClUyzU5TLUjf8Rpn2r9viH2kcJ9TL~-7UIg__" alt="功能圖片5" class="w-full h-auto rounded-lg cursor-pointer">
+          <img src="../assets/images/pic.jpg" alt="功能圖片5" class="w-full h-full object-cover rounded-lg cursor-pointer">
           <p class="text-xs text-[#6F6D55] mt-2">和朋友分享美食紀錄</p>
         </a>
       </div>
     </div>
   </div>
-
-
 </template>
 
 <style scoped>
-body {
+html, body {
   overflow-x: hidden;
 }
 </style>
