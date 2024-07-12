@@ -81,7 +81,7 @@ import { useCountryStore } from '../stores/country.js';
 <template>
   <div class="max-w-7xl mx-auto my-0 bg-custom-color">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
-      <div class="w-1/4 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
+      <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
         <input type="radio" id="list" name="view" class="hidden peer/list" checked />
         <label for="list" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/list:bg-[#6b6142] peer-checked/list:text-white border-b-0 border-gray-400 rounded-full">
           列表
@@ -135,7 +135,8 @@ import { useCountryStore } from '../stores/country.js';
     
     </header>
     <main class="h-screen text-[#6F6D55]">
-      <table v-if="!isNoData" class="w-11/12 mx-auto border-collapse">
+      <!-- 大銀幕的紀錄表格-->
+      <table v-if="!isNoData" v-show="!isSmallScreen" class="w-11/12 mx-auto border-collapse">
         <thead>
           <tr class="text-left p-2">
             <th>名稱</th>
@@ -164,7 +165,29 @@ import { useCountryStore } from '../stores/country.js';
           </tr>
         </tbody>
       </table>
-      <div v-else class="mt-10 flex justify-center">
+
+      <!-- 手機版的紀錄列表-->
+      <div v-show="isSmallScreen" class="w-11/12 mx-auto mb-2 border-2 border-[#a49d7d] rounded-xl" v-for="(record,index) in records" :key="index">
+        <div class="border-b-2">
+          <span class="inline-block w-24 text-left px-2 py-4">名稱</span>
+          <span class="inline-block px-2 py-4">{{ record.name }}</span>
+        </div>
+        <div class="border-b-2">
+          <span class="inline-block w-24 text-left px-2 py-4">分類</span>
+          <span class="inline-block px-2 py-4">{{ record.tag }}</span>
+        </div>
+        <div class="border-b-2">
+          <span class="inline-block w-24 text-left px-2 py-4">地點</span>
+          <span class="inline-block px-2 py-4">{{ record.place }}</span>
+        </div>
+        <div>
+          <span class="inline-block w-24 text-left px-2 py-4">營業時間</span>
+          <span class="inline-block px-2 py-4">{{ record.businessTime }}</span>
+        </div>
+        
+      </div>
+
+      <div v-show="isNoData" class="mt-10 flex justify-center">
         <img src="../assets/images/FoodRecordList/NoData.png" alt="">
       </div>
       
