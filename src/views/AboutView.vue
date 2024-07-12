@@ -12,8 +12,8 @@
     </div>
     <div class="absolute left-10 top-24 text-green1 space-y-4">
       <h1 class="text-[28px] font-semibold">加入食享</h1>
-      <h2 class="text-xl font-semibold">一起來探索你的美食足跡，發現世界各地的美味佳餚</h2>
-      <h3 class="text-xl font-medium w-3/6">
+      <h2 class="text-xl font-semibold min-w-[500px]">一起來探索你的美食足跡，發現世界各地的美味佳餚</h2>
+      <h3 class="text-xl font-medium w-4/6 min-w-[420px]">
         食享 (TasteJoy) 是一款專為美食愛好者設計的網站，
         讓您可以在全球範圍內探索、發現並記錄各種美食的足跡。
         無論您身處何地，我們都將帶您走進本地的美食天堂。
