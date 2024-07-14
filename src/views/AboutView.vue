@@ -188,7 +188,51 @@ const onSubmit = (values) => {
     </div>
   </div>
   
-  
+  <footer class="absolute left-1/2 transform -translate-x-1/2 top-[3850px] w-full max-w-full h-auto bg-green4 text-green1 text-[16px] flex flex-col justify-center items-center py-4">
+    <div class="w-10/12 max-w-screen-lg px-5 space-y-2 min-w-[580px]">
+      <div class="flex flex-wrap items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="../assets/images/NavBar/logo.png" alt="Logo" class="h-[45px]" />
+          <div class="flex items-center space-x-4">
+            <span class="text-lg font-semibold">食享</span>
+            <span class="text-lg font-semibold">TasteJoy</span>
+          </div>
+        </div>
+        <nav class="flex items-center space-x-4 mt-2 md:mt-0">
+          <a href="#platform" class="text-green1 hover:underline">平台介紹</a>
+          <span>|</span>
+          <a href="#today" class="text-green1 hover:underline">今天吃什麼</a>
+          <span>|</span>
+          <a href="#articles" class="text-green1 hover:underline">美食文章</a>
+          <span>|</span>
+          <a href="#login" class="text-green1 hover:underline">登入/註冊</a>
+        </nav>
+      </div>
+      <div class="mt-2">
+        本網站為 side project，若有任何想法跟建議歡迎填寫表單和我們聊聊！
+      </div>
+      <div class="mt-2">
+        開發者：
+        <a href="#" class="text-green1 hover:underline">2魚</a>
+        <span class="mx-2">|</span>
+        <a href="#" class="text-green1 hover:underline">Ron</a>
+        <span class="mx-2">|</span>
+        <a href="#" class="text-green1 hover:underline">Ran</a>
+        <span class="mx-2">|</span>
+        <a href="#" class="text-green1 hover:underline">Oria</a>
+        <span class="mx-2">|</span>
+        <a href="#" class="text-green1 hover:underline">Chieh</a>
+        <span class="mx-2">|</span>
+        <a href="#" class="text-green1 hover:underline">Boin</a>
+        <span class="mx-2">|</span>
+        <a href="#" class="text-green1 hover:underline">子恆</a>
+      </div>
+      <div class="mt-2">
+        信箱：
+        <a href="mailto:yu13142013@gmail.com" class="text-green1 hover:underline ml-2">yu13142013@gmail.com</a>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style scoped>
@@ -200,5 +244,18 @@ html, body {
 }
 input {
   accent-color: #6F6D55;
+}
+@media (max-width: 900px) {
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  nav {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .justify-end {
+    justify-content: flex-start;
+  }
 }
 </style>
