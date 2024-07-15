@@ -11,7 +11,6 @@ import { useCountryStore } from '../stores/country.js';
   // 預設是不展開
   const isMobileMenuOpen = ref(false);
   
-
   const checkScreenSize = () => {
     isSmallScreen.value = window.matchMedia('(max-width: 768px)').matches;
     if (!isSmallScreen.value) {
