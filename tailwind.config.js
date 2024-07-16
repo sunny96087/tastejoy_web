@@ -34,7 +34,28 @@ export default {
         green4: '#6F6D55',
         green5: '#494839',
         red1: '#FFAEAA',
-        red2: 'ED6F69'
+        red2: 'ED6F69',
+        green: {
+          1: '#ebe5ba',
+          2: '#BDB890',
+          3: '#87835d',
+          4: '#6f6d55'
+        }
+      },
+      spacing: {
+        15: '60px',
+        27: '108px',
+        34: '136px',
+        35: '140px'
+      },
+      keyframes: {
+        'slide-in-right': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' }
+        }
+      },
+      animation: {
+        'slide-in-right': 'slide-in-right 0.3s ease-in-out none'
       }
     }
   },

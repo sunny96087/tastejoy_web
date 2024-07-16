@@ -65,7 +65,7 @@
         <div class="pt-6 pb-10 pl-0 text-center">
           <span class="text-green-4">還沒有帳號嗎?</span>
           <span class="text-green-4 underline pl-2">
-            <a href="/src/join.html">點擊註冊</a>
+            <RoterLink to="/register">點擊註冊</RoterLink>
           </span>
         </div>
       </div>

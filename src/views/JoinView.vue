@@ -89,7 +89,7 @@
         <div class="pt-6 pb-10 pl-0 text-center">
           <span class="text-green-4">已經有帳號了!</span>
           <span class="text-green-4 underline pl-2">
-            <a href="login.html">我要登入</a>
+            <RoterLink to="/login">我要登入</RoterLink>
           </span>
         </div>
       </div>
