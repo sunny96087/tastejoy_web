@@ -1,19 +1,13 @@
 <script setup></script>
 
 <template>
-  <div
-    class="bg-pc min-h-screen bg-cover bg-center bg-no-repeat bg-scroll h-[853px]"
-  >
+  <div class="bg-pc min-h-screen bg-cover bg-center bg-no-repeat bg-scroll h-[853px]">
     <div class="min-w-screen mx-auto px-15 flex max-lg:flex-col max-md:px-0">
       <div class="container pt-27 max-md:pt-[68px] max-md:pl-5">
-        <h2
-          class="text-1 max-md:text-1-mb font-bold text-green-3 absolute pt-[2px] pl-[2px]"
-        >
+        <h2 class="text-1 max-md:text-1-mb font-bold text-green-3 absolute pt-[2px] pl-[2px]">
           今天想吃?
         </h2>
-        <h2 class="text-1 max-md:text-1-mb font-bold text-green-1 relative">
-          今天想吃?
-        </h2>
+        <h2 class="text-1 max-md:text-1-mb font-bold text-green-1 relative">今天想吃?</h2>
       </div>
       <div
         class="w-[488px] mt-[168px] px-5 border rounded-3xl bg-white max-lg:mx-auto max-lg:mt-[30px] max-md:w-[334px]"
@@ -58,17 +52,13 @@
         <div class="hori-line max-md:w-[294px]"></div>
         <div class="flex gap-6 pt-6 pb-6 justify-center">
           <a href="#">
-            <img src="/src/images/icon-google.png" alt="Google" class="icon" />
+            <img src="../assets/images/icon-google.png" alt="Google" class="icon" />
           </a>
           <a href="#">
-            <img
-              src="/src/images/icon-discord.png"
-              alt="Discord"
-              class="icon"
-            />
+            <img src="../assets/images/icon-discord.png" alt="Discord" class="icon" />
           </a>
           <a href="#">
-            <img src="/src/images/icon-github.png" alt="Github" class="icon" />
+            <img src="../assets/images/icon-github.png" alt="Github" class="icon" />
           </a>
         </div>
         <div class="hori-line max-md:w-[294px]"></div>
@@ -87,7 +77,7 @@
 
 <style scoped>
 body {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 .text-1 {
   font-size: 60px;

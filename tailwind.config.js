@@ -17,7 +17,7 @@ export default {
         'max-xl': { max: '1279px' }
       },
       backgroundImage: {
-        pc: "url('/src/images/bg.jpg')"
+        pc: "url('./src/assets/images/bg.jpg')"
       },
       backgroundColor: {
         'custom-color': 'rgb(255, 253, 246)',

@@ -1,12 +1,8 @@
 <script setup></script>
 
 <template>
-  <div
-    class="bg-pc min-w-screen min-h-screen bg-cover bg-center bg-no-repeat bg-scroll h-[853px]"
-  >
-    <div
-      class="min-w-screen mx-auto pl-15 flex flex-row-reverse max-lg:flex-col max-md:pl-0"
-    >
+  <div class="bg-pc min-w-screen min-h-screen bg-cover bg-center bg-no-repeat bg-scroll h-[853px]">
+    <div class="min-w-screen mx-auto pl-15 flex flex-row-reverse max-lg:flex-col max-md:pl-0">
       <div
         class="flex flex-col pt-27 pl-[82px] pr-5 max-md:pt-[70px] max-lg:pl-[22px] animate-slide-in-right max-md:animate-none"
       >
@@ -14,14 +10,10 @@
           <h2 class="text-3 font-bold text-green-3 absolute pt-[2px] pl-[2px]">
             想不到下一餐吃什麼？
           </h2>
-          <h2 class="text-3 font-bold text-green-1 relative">
-            想不到下一餐吃什麼？
-          </h2>
+          <h2 class="text-3 font-bold text-green-1 relative">想不到下一餐吃什麼？</h2>
         </div>
         <div class="pl-10 max-md:pl-0">
-          <h2
-            class="text-3 max-md:text-3-mb font-bold text-green-3 absolute pt-[2px] pl-[2px]"
-          >
+          <h2 class="text-3 max-md:text-3-mb font-bold text-green-3 absolute pt-[2px] pl-[2px]">
             開啟美食紀錄之旅吧！
           </h2>
           <h2 class="text-3 max-md:text-3-mb font-bold text-green-1 relative">
@@ -84,17 +76,13 @@
         <div class="hori-line max-md:w-[294px]"></div>
         <div class="flex gap-6 pt-6 pb-6 justify-center">
           <a href="#">
-            <img src="/src/images/icon-google.png" alt="Google" class="icon" />
+            <img src="../assets/images/icon-google.png" alt="Google" class="icon" />
           </a>
           <a href="#">
-            <img
-              src="/src/images/icon-discord.png"
-              alt="Discord"
-              class="icon"
-            />
+            <img src="../assets/images/icon-discord.png" alt="Discord" class="icon" />
           </a>
           <a href="#">
-            <img src="/src/images/icon-github.png" alt="Github" class="icon" />
+            <img src="../assets/images/icon-github.png" alt="Github" class="icon" />
           </a>
         </div>
         <div class="hori-line max-md:w-[294px]"></div>
@@ -113,7 +101,7 @@
 
 <style scoped>
 body {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 .text-1 {
   font-size: 60px;
