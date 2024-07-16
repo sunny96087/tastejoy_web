@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 
 // 先假設是已登入狀態
-const isMember = ref(false)
+const isMember = ref(true)
 
 // 是否有好友推薦的餐廳
 const isNotice = ref(true)
@@ -41,7 +41,7 @@ const clickMenu = () => {
           <RouterLink to="/" class="text-[#6F6D55]">登出</RouterLink>
         </li>
         <li v-else class="m-5">
-          <RouterLink to="/" class="text-[#6F6D55]">登入/註冊</RouterLink>
+          <RouterLink to="/login" class="text-[#6F6D55]">登入/註冊</RouterLink>
         </li>
         <li v-if="isMember" class="m-5">
           <RouterLink to="/friendlist">
@@ -74,7 +74,7 @@ const clickMenu = () => {
       </div>
     </nav>
 
-    <div class="relative w-auto h-auto">
+    <div class="w-auto h-auto">
       <!-- 手機版才會有的清單列 -->
       <!-- 遮罩 -->
       <div
@@ -85,7 +85,7 @@ const clickMenu = () => {
       <transition name="sidebar">
         <div
           v-if="isMenuOpen"
-          class="bg-custom-color absolute top-1 right-0 w-1/3 h-screen md:hidden"
+          class="bg-custom-color fixed top-1/5 right-0 w-1/3 h-screen z-50 md:hidden"
         >
           <ul class="h-full">
             <li

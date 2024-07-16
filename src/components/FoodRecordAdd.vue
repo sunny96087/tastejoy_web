@@ -7,7 +7,6 @@
 
   const closeModal = () => {
     emit("closeAddModal")
-
   }
 
   const formData = ref({
