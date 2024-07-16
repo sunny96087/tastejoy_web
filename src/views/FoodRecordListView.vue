@@ -85,7 +85,7 @@ import addRecord from '../components/FoodRecordAdd.vue'
 </script>
 
 <template>
-  <addRecord v-show="isShowAddRecord"/>
+  <addRecord v-show="isShowAddRecord" @closeAddModal="isShowAddRecord = false"/>
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">

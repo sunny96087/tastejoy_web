@@ -2,23 +2,11 @@
   import { ref,onMounted,watch } from 'vue'
   import { useCountryStore } from '../stores/country.js';
 
-  // 控制新增選單是否展開
-  const props = defineProps({
-    show:{
-      type: Boolean,
-      default: false,
-    },
-  })
-  console.log('addModal',props.show)
+  // 按下關閉按鈕回傳選單關閉給父組件
+  const emit = defineEmits(["closeAddModal"])
 
-  const emit = defineEmits(["updateAddModal"])
-
-  const showModal = ref(props.show)
-  const localShowModal = ref(showModal.value)
-
-  const closeModal = () =>{
-    localShowModal.value = false
-    emit("updateAddModal",localShowModal.value)
+  const closeModal = () => {
+    emit("closeAddModal")
 
   }
 
@@ -65,7 +53,7 @@
 </script>
 
 <template>
-  <div v-if="false" class="fixed top-0 inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
+  <div class="fixed top-0 inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
     <div class="w-full max-w-lg h-screen bg-white p-4 rounded-2xl overflow-auto">
       <div class="flex justify-between items-center">
         <h2 class="text-xl font-semibold mb-4 text-black">新增紀錄</h2>
