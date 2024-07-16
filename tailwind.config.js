@@ -3,6 +3,19 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        // min-width 斷點
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+
+        // max-width 斷點
+        'max-sm': { max: '639px' },
+        'max-md': { max: '767px' },
+        'max-lg': { max: '1025px' },
+        'max-xl': { max: '1279px' }
+      },
       backgroundImage: {
         pc: "url('/src/images/bg.jpg')"
       },
