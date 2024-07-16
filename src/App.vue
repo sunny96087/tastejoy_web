@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
-import add from './components/FoodRecordAdd.vue'
 
 </script>
 
@@ -9,7 +8,6 @@ import add from './components/FoodRecordAdd.vue'
   <header>
     <NavBar/>
     <br/>
-    <add/>
     
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 

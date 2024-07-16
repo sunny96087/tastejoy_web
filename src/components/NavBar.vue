@@ -71,13 +71,13 @@ import { RouterLink, RouterView } from 'vue-router'
       </div>
     </nav>
     
-    <div class="relative w-auto h-auto">
+    <div class="w-auto h-auto">
       <!-- 手機版才會有的清單列 -->
       <!-- 遮罩 -->
-      <div v-if="isMenuOpen" class="bg-[#000000] opacity-20 absolute top-0 left-0 w-2/3 h-screen"></div>
+      <div v-if="isMenuOpen" class="bg-[#000000] opacity-20 fixed top-1/5 left-0 w-2/3 h-screen z-50"></div>
 
       <transition name="sidebar">
-        <div v-if="isMenuOpen" class="bg-custom-color absolute top-1 right-0 w-1/3 h-screen md:hidden">
+        <div v-if="isMenuOpen" class="bg-custom-color fixed top-1/5 right-0 w-1/3 h-screen z-50 md:hidden">
           <ul class="h-full">
             <li v-if="!isMember" class="m-5 flex text-center cursor-pointer hover:bg-custom-hover-color">
               <RouterLink to="/login" class="text-[#6F6D55] text-center">登入/註冊</RouterLink>

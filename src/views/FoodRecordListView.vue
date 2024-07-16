@@ -1,7 +1,8 @@
 <script setup>
 
-import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue';
-import { useCountryStore } from '../stores/country.js';
+import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue'
+import { useCountryStore } from '../stores/country.js'
+import addRecord from '../components/FoodRecordAdd.vue'
 
   // 是否要顯示功能表
   const isMenuOpen = ref(false);
@@ -50,6 +51,12 @@ import { useCountryStore } from '../stores/country.js';
     towns.value = useCountryStore().towns(newVal);
     });
 
+  // 新增按鈕
+  const isShowAddRecord = ref(false)
+  const showAddRecord = ()=> {
+    isShowAddRecord.value = true
+  }
+
   // 取得美食紀錄資料 TODO:API
   let isNoData = false;
   const records = ref(
@@ -78,7 +85,8 @@ import { useCountryStore } from '../stores/country.js';
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto my-0 bg-custom-color">
+  <addRecord v-show="isShowAddRecord"/>
+  <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
         <input type="radio" id="list" name="view" class="hidden peer/list" checked />
@@ -129,7 +137,7 @@ import { useCountryStore } from '../stores/country.js';
         </button>
       </div>
       <div v-if=shouldShowMenu class="w-full flex justify-end md:w-1/6">
-        <button class="w-1/6 p-2 text-[#a49d7d] cursor-pointer border-2 border-[#a49d7d] rounded-full bg-[#6F6D55] md:w-full">新增</button>
+        <button @click="showAddRecord" class="w-1/6 p-2 text-[#a49d7d] cursor-pointer border-2 border-[#a49d7d] rounded-full bg-[#6F6D55] md:w-full">新增</button>
       </div>
     
     </header>
