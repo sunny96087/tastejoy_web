@@ -40,6 +40,12 @@ export default {
           2: '#BDB890',
           3: '#87835d',
           4: '#6f6d55'
+        },
+        orange: {
+          1: '#F9BC75'
+        },
+        brown: {
+          1: '#A56D2B'
         }
       },
       spacing: {
