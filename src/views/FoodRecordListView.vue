@@ -2,7 +2,8 @@
 
 import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue'
 import { useCountryStore } from '../stores/country.js'
-import addRecord from '../components/FoodRecordAdd.vue'
+import addRecord from '../views/FoodRecordAdd.vue'
+import infoRecord from '../views/FoodRecordInfo.vue'
 
   // 是否要顯示功能表
   const isMenuOpen = ref(false);
@@ -54,7 +55,14 @@ import addRecord from '../components/FoodRecordAdd.vue'
   // 新增按鈕
   const isShowAddRecord = ref(false)
   const showAddRecord = ()=> {
+    console.log('有按到！')
     isShowAddRecord.value = true
+  }
+
+  // 紀錄詳細按鈕
+  const isShowInfoRecord = ref(false)
+  const showInfoRecord = ()=> {
+    isShowInfoRecord.value = true
   }
 
   // 取得美食紀錄資料 TODO:API
@@ -85,7 +93,11 @@ import addRecord from '../components/FoodRecordAdd.vue'
 </script>
 
 <template>
+  <!-- 新增紀錄視窗 -->
   <addRecord v-show="isShowAddRecord" @closeAddModal="isShowAddRecord = false"/>
+  <!-- 詳細紀錄視窗 -->
+  <infoRecord v-show="isShowInfoRecord" @closeInfoModal="isShowInfoRecord = false"/>
+
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
@@ -166,9 +178,22 @@ import addRecord from '../components/FoodRecordAdd.vue'
             <td class="p-3">{{ record.businessTime }}</td>
             <td class="p-3">{{ record.phone }}</td>
             <td class="p-3">{{ record.score }}</td>
-            <td class="p-3"><img src="../assets/images/FoodRecordList/checkButton.png" alt="check-icon" style="width:28px; height:28px;"></td>
-            <td class="p-3"><img src="../assets/images/FoodRecordList/NavButton.png" alt="nav-icon" style="width:28px; height:28px;"></td>
-            <td class="p-3"><img src="../assets/images/FoodRecordList/ShareButton.png" alt="share-icon" style="width:28px; height:28px;"></td>
+            <td class="p-3">
+              <button @click="showInfoRecord">
+                <img src="../assets/images/FoodRecordList/checkButton.png" alt="check-icon" style="width:28px; height:28px;">   
+              </button>
+              
+            </td>
+            <td class="p-3">
+              <router-link to="/">
+                <img src="../assets/images/FoodRecordList/NavButton.png" alt="nav-icon" style="width:28px; height:28px;">
+              </router-link>
+            </td>
+            <td class="p-3">
+              <router-link to="/">
+                <img src="../assets/images/FoodRecordList/ShareButton.png" alt="share-icon" style="width:28px; height:28px;">
+              </router-link>
+            </td>
           </tr>
         </tbody>
       </table>

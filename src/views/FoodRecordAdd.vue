@@ -53,7 +53,7 @@
 
 <template>
   <div class="fixed top-0 inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
-    <div class="w-full max-w-lg h-screen bg-white p-4 rounded-2xl overflow-auto">
+    <div class="w-full max-w-lg h-screen bg-custom-color p-4 rounded-2xl overflow-auto">
       <div class="flex justify-between items-center">
         <h2 class="text-xl font-semibold mb-4 text-black">新增紀錄</h2>
         <button @click="closeModal">

@@ -20,7 +20,7 @@ const clickMenu = () => {
   <div class="w-full mx-auto my-0 border-b border-amber-400">
     <nav class="w-full bg-custom-color flex justify-between items-center">
       <div class="m-5">
-        <RouterLink to="/">
+        <RouterLink to="/about">
           <img src="../assets/images/NavBar/logo.png" alt="logo" class="w-10 h-10" />
         </RouterLink>
       </div>
