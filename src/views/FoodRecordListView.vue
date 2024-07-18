@@ -212,9 +212,20 @@ import infoRecord from '../views/FoodRecordInfo.vue'
           <span class="inline-block w-24 text-left px-2 py-4">地點</span>
           <span class="inline-block px-2 py-4">{{ record.place }}</span>
         </div>
-        <div>
+        <div class="border-b-2">
           <span class="inline-block w-24 text-left px-2 py-4">營業時間</span>
           <span class="inline-block px-2 py-4">{{ record.businessTime }}</span>
+        </div>
+        <div class="flex justify-end">
+          <button class="mr-4" @click="showInfoRecord">
+            <img src="../assets/images/FoodRecordList/checkButton.png" alt="check-icon" style="width:35px; height:35px;">   
+          </button>
+          <router-link to="/" class="mr-4">
+            <img src="../assets/images/FoodRecordList/NavButton.png" alt="nav-icon" style="width:35px; height:35px;">
+          </router-link>
+          <router-link to="/">
+            <img src="../assets/images/FoodRecordList/ShareButton.png" alt="share-icon" style="width:35px; height:35px;">
+          </router-link>
         </div>
         
       </div>
