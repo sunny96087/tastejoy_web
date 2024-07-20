@@ -8,6 +8,16 @@
     emit("closeInfoModal")
   }
 
+  // 控制欄位可否編輯
+  const isEditable = ref(false)
+  const openEditStatus = () =>{
+    isEditable.value = true
+  }
+
+  const closeEditStatus = () =>{
+    isEditable.value = false
+  }
+
   // TODO需拿資料
   const formData = ref({
     image:'',
@@ -48,32 +58,32 @@
         <form>
           <div class="mb-4">
             <label class="text-gray-700">店家</label>
-            <input v-model="formData.store" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.store" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">電話</label>
-            <input v-model="formData.phone" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.phone" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">食物名稱</label>
-            <input v-model="formData.foodName" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.foodName" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="block text-gray-700">說明</label>
-            <input v-model="formData.description" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.description" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">日期</label>
-            <input v-model="formData.date" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.date" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">分類</label>
-            <input v-model="formData.category" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.category" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
@@ -83,37 +93,37 @@
 
           <div class="mb-4">
             <label class="block text-gray-700">感想</label>
-            <input v-model="formData.thoughts" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.thoughts" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="block text-gray-700">備註</label>
-            <input v-model="formData.note" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.note" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">營業時間</label>
-            <input v-model="formData.businessHour" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.businessHour" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="block text-gray-700">店家備註</label>
-            <input v-model="formData.storeNote" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.storeNote" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">縣市</label>
-            <input v-model="formData.country" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.country" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="block text-gray-700">地址</label>
-            <input v-model="formData.address" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.address" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
             <label class="text-gray-700">經緯</label>
-            <input v-model="formData.location" disabled type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
+            <input v-model="formData.location" :disabled="!isEditable" type="text" class="w-full mt-1 px-3 py-2 border rounded-2xl text-[#3F3F46]" />
           </div>
 
           <div class="mb-4">
@@ -128,21 +138,27 @@
           </div>
 
           <div class="flex justify-end">
-            <button class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
+            <button v-if="!isEditable" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
               刪除
               <img src="../assets/images/FoodRecordList/info_del.png" alt="">
             </button>
-            <button class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
+            <button v-if="!isEditable" @click="openEditStatus" type="button" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
               編輯
               <img src="../assets/images/FoodRecordList/info_edit.png" alt="">
             </button>
-            <button class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
+            <button v-if="!isEditable" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
               分享    
               <img src="../assets/images/FoodRecordList/info_share.png" alt="">
             </button>
-            <button type="cancel" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
+            <button v-if="!isEditable" type="button" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
               導航
               <img src="../assets/images/FoodRecordList/info_nav.png" alt="">
+            </button>
+            <button v-if="isEditable" @click="closeEditStatus" type="button" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
+              取消
+            </button>
+            <button v-if="isEditable" type="cancel" class="w-1/5 px-4 py-2 mr-2 border rounded-2xl text-[#6F6D55] flex justify-center items-center hover:bg-[#6F6D55]">
+              儲存
             </button>
           </div>
         </form>
