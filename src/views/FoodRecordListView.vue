@@ -4,6 +4,17 @@ import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue'
 import { useCountryStore } from '../stores/country.js'
 import addRecord from '../views/FoodRecordAdd.vue'
 import infoRecord from '../views/FoodRecordInfo.vue'
+import { RouterLink,useRoute } from 'vue-router';
+
+  // 判斷是否紀錄為列表或地圖模式
+  const route = useRoute();
+  const isListView = ref(false);
+  const isMapView = ref(false);
+
+  const updateView = () => {
+    isListView.value = route.path === '/record';
+    isMapView.value = route.path === '/graph';
+  };
 
   // 是否要顯示功能表
   const isMenuOpen = ref(false);
@@ -32,6 +43,7 @@ import infoRecord from '../views/FoodRecordInfo.vue'
 
   onMounted(() => {
     checkScreenSize();
+    updateView();
     window.addEventListener('resize', checkScreenSize);
   });
 
@@ -55,7 +67,6 @@ import infoRecord from '../views/FoodRecordInfo.vue'
   // 新增按鈕
   const isShowAddRecord = ref(false)
   const showAddRecord = ()=> {
-    console.log('有按到！')
     isShowAddRecord.value = true
   }
 
@@ -101,14 +112,18 @@ import infoRecord from '../views/FoodRecordInfo.vue'
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
-        <input type="radio" id="list" name="view" class="hidden peer/list" checked />
-        <label for="list" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/list:bg-[#6b6142] peer-checked/list:text-white border-b-0 border-gray-400 rounded-full">
+        <input type="radio" id="list" name="view" class="hidden peer/list" />
+        <label :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isListView }]">
           列表
         </label>
+
         <input type="radio" id="map" name="view" class="hidden peer/map" />
-        <label for="map" class="cursor-pointer px-4 py-2 text-custom-switch-color peer-checked/map:bg-[#6b6142] peer-checked/map:text-white border-b-0 border-gray-400 rounded-full">
-          地圖
-        </label>
+        <RouterLink to="/graph" 
+        :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isMapView }]">
+          <label>
+            地圖
+          </label>
+        </RouterLink>
       </div>
 
       <!-- 手機版收合展開功能按鈕 -->
