@@ -112,17 +112,16 @@ import { RouterLink,useRoute } from 'vue-router';
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
-        <input type="radio" id="list" name="view" class="hidden peer/list" />
-        <label :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isListView }]">
+        <RouterLink to="/record" 
+        :class="['cursor-pointer px-4 py-2 text-[#f7f6f1] border-b-0 border-gray-400 rounded-full', { 'bg-[#6F6D55] text-white': isListView }]"
+        >
           列表
-        </label>
-
-        <input type="radio" id="map" name="view" class="hidden peer/map" />
+        </RouterLink>
+          
         <RouterLink to="/graph" 
-        :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isMapView }]">
-          <label>
-            地圖
-          </label>
+        :class="['cursor-pointer px-4 py-2 text-[#6F6D55] border-b-0 border-gray-400 rounded-full', { 'bg-[#6F6D55] text-white': isMapView }]"
+        >
+          地圖
         </RouterLink>
       </div>
 

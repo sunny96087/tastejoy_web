@@ -40,7 +40,7 @@ const router = createRouter({
     {
       path: '/graph',
       name: 'graph',
-      component: () => import('../views/FoodRecordGraphView.vue')
+      component: () => import('../views/FoodRecordMapView.vue')
     },
     {
       path: '/friend',

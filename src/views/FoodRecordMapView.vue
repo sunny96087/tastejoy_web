@@ -5,6 +5,7 @@ import { useCountryStore } from '../stores/country.js'
 import { RouterLink,useRoute } from 'vue-router';
 import addRecord from './FoodRecordAdd.vue'
 import infoRecord from './FoodRecordInfo.vue'
+import mapTool from './FoodMapView.vue'
 
   // 判斷是否紀錄為地圖模式
   const route = useRoute();
@@ -81,16 +82,17 @@ import infoRecord from './FoodRecordInfo.vue'
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
-        <input type="radio" id="list" name="view" class="hidden peer/list" />
-        <RouterLink to="/record" :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isListView }]">
-          <label>
-            列表
-          </label>
+        <RouterLink to="/record" 
+        :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isListView }]"
+        >
+          列表
         </RouterLink>
-        <input type="radio" id="map" name="view" class="hidden peer/map" />
-        <label :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isMapView }]">
+          
+        <RouterLink to="/graph" 
+        :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isMapView }]"
+        >
           地圖
-        </label>
+        </RouterLink>
       </div>
 
       <div class="w-full mb-2 p-1 border-2 border-[#a49d7d] rounded-full flex justify-between md:w-1/2 md:mb-0">
@@ -104,56 +106,8 @@ import infoRecord from './FoodRecordInfo.vue'
       </div>
     
     </header>
-    <main class="h-screen text-[#6F6D55]">
-      <!-- 大銀幕的紀錄表格-->
-      <table v-if="!isNoData" class="w-11/12 mx-auto border-collapse">
-        <thead>
-          <tr class="text-left p-2">
-            <th>名稱</th>
-            <th>分類</th>
-            <th>地點</th>
-            <th>營業時間</th>
-            <th>電話</th>
-            <th>分數</th>
-            <th>檢視</th>
-            <th>導航</th>
-            <th>分享</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(record,index) in records" :key="index"
-          class="text-left border-b border-b-[#E4E4E7]">
-            <td class="p-3">{{ record.name }}</td>
-            <td class="p-3">{{ record.tag }}</td>
-            <td class="p-3">{{ record.place }}</td>
-            <td class="p-3">{{ record.businessTime }}</td>
-            <td class="p-3">{{ record.phone }}</td>
-            <td class="p-3">{{ record.score }}</td>
-            <td class="p-3">
-              <button @click="showInfoRecord">
-                <img src="../assets/images/FoodRecordList/checkButton.png" alt="check-icon" style="width:28px; height:28px;">   
-              </button>
-              
-            </td>
-            <td class="p-3">
-              <router-link to="/">
-                <img src="../assets/images/FoodRecordList/NavButton.png" alt="nav-icon" style="width:28px; height:28px;">
-              </router-link>
-            </td>
-            <td class="p-3">
-              <router-link to="/">
-                <img src="../assets/images/FoodRecordList/ShareButton.png" alt="share-icon" style="width:28px; height:28px;">
-              </router-link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- 手機版的紀錄列表-->
-
-      <div v-show="isNoData" class="mt-10 flex justify-center">
-        <img src="../assets/images/FoodRecordList/NoData.png" alt="">
-      </div>
+    <main class="h-screen w-11/12 mx-auto text-[#6F6D55] border-2 border-[#a49d7d] rounded-xl">
+      <mapTool/>
       
     </main>
   </div>
