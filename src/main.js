@@ -12,6 +12,8 @@ import {Form, Field, ErrorMessage, defineRule, configure} from 'vee-validate'
 import { localize, setLocale } from '@vee-validate/i18n'
 // 引入 Vee Validate 繁體中文語系檔
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json'
+// 導入 leftlet套件css檔案
+import 'leaflet/dist/leaflet.css';
 
 // 加入 Vee Validate 繁體中文語系檔
 // *將當前 Vee Validate 語系設定為繁體中文

@@ -1,4 +1,13 @@
-<script setup></script>
+<script setup>
+import { ref, watch, computed, onMounted, onBeforeUnmount } from 'vue'
+import infoRecord from './FoodRecordInfo.vue'
+
+// 紀錄詳細按鈕
+const isShowInfoRecord = ref(false)
+const showInfoRecord = () => {
+  isShowInfoRecord.value = true
+}
+</script>
 
 <template>
   <div class="friend text-[16px] text-green4">
@@ -11,66 +20,139 @@
           <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" /> -->
       </div>
 
-      <!-- 表格標題 -->
-      <div class="text-item border font-medium">
-        <p class="w-20 text-center">圖片</p>
+      <!-- * mb -->
+      <div class="lg:hidden p-3 flex flex-col gap-3">
+        <div class="border border-green-2 rounded-2xl overflow-hidden">
+          <div class="flex items-center border-b border-zinc-200">
+            <div class="p-[10px]">
+              <div class="w-10 h-10 rounded-full overflow-hidden mx-auto">
+                <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" />
+              </div>
+            </div>
+            <div class="grow px-3 py-2 gap-1 flex flex-col">
+              <div class="text-green-4 text-[14px]">小明</div>
+              <div class="text-zinc-700">海底撈</div>
+            </div>
+          </div>
 
-        <p class="grow">名稱</p>
-        <p class="w-[120px] text-center">好友</p>
+          <div class="flex justify-end">
+            <button
+              class="w-[36px] h-[36px] rounded-full overflow-hidden m-3"
+              @click="showInfoRecord"
+            >
+              <img src="@/assets/images/eyes.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/check.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/trash.png" alt="" class="pic-auto" />
+            </button>
+          </div>
+        </div>
 
-        <div class="text-items">
-          <p class="p-[14px]">查看</p>
-          <p class="p-[14px]">同意</p>
-          <p class="p-[14px]">刪除</p>
+        <div class="border border-green-2 rounded-2xl overflow-hidden">
+          <div class="flex items-center border-b border-zinc-200">
+            <div class="p-[10px]">
+              <div class="w-10 h-10 rounded-full overflow-hidden mx-auto">
+                <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" />
+              </div>
+            </div>
+            <div class="grow px-3 py-2 gap-1 flex flex-col">
+              <div class="text-green-4 text-[14px]">小明</div>
+              <div class="text-zinc-700">海底撈</div>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <button
+              class="w-[36px] h-[36px] rounded-full overflow-hidden m-3"
+              @click="showInfoRecord"
+            >
+              <img src="@/assets/images/eyes.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/check.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/trash.png" alt="" class="pic-auto" />
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- 表格內容 -->
-      <div class="text-item border border-zinc-200">
-        <div class="w-20">
-          <div class="w-10 h-10 rounded-full overflow-hidden mx-auto">
-            <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" />
+      <!-- * pc -->
+      <div class="hidden lg:block">
+        <!-- 表格標題 -->
+        <div class="text-item border font-medium">
+          <p class="w-20 text-center">圖片</p>
+
+          <p class="grow">名稱</p>
+          <p class="w-[120px] text-center">好友</p>
+
+          <div class="text-items">
+            <p class="p-[14px]">查看</p>
+            <p class="p-[14px]">同意</p>
+            <p class="p-[14px]">刪除</p>
           </div>
         </div>
 
-        <p class="grow text-zinc-700">海底撈</p>
-        <p class="w-[120px] text-center text-zinc-700">小明</p>
+        <!-- 表格內容 -->
+        <div class="text-item border border-zinc-200">
+          <div class="w-20">
+            <div class="w-10 h-10 rounded-full overflow-hidden mx-auto">
+              <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" />
+            </div>
+          </div>
 
-        <div class="flex">
-          <div class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
-            <img src="@/assets/images/eyes.png" alt="" class="pic-auto" />
-          </div>
-          <div class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
-            <img src="@/assets/images/check.png" alt="" class="pic-auto" />
-          </div>
-          <div class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
-            <img src="@/assets/images/trash.png" alt="" class="pic-auto" />
+          <p class="grow text-zinc-700">海底撈</p>
+          <p class="w-[120px] text-center text-zinc-700">小明</p>
+
+          <div class="flex">
+            <button
+              class="w-[36px] h-[36px] rounded-full overflow-hidden m-3"
+              @click="showInfoRecord"
+            >
+              <img src="@/assets/images/eyes.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/check.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/trash.png" alt="" class="pic-auto" />
+            </button>
           </div>
         </div>
-      </div>
-      <div class="text-item border border-zinc-200">
-        <div class="w-20">
-          <div class="w-10 h-10 rounded-full overflow-hidden mx-auto">
-            <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" />
+        <div class="text-item border border-zinc-200">
+          <div class="w-20">
+            <div class="w-10 h-10 rounded-full overflow-hidden mx-auto">
+              <img src="@/assets/images/pic.jpg " alt="圖片" class="pic-auto" />
+            </div>
           </div>
-        </div>
 
-        <p class="grow text-zinc-700">海底撈</p>
-        <p class="w-[120px] text-center text-zinc-700">小明</p>
+          <p class="grow text-zinc-700">海底撈</p>
+          <p class="w-[120px] text-center text-zinc-700">小明</p>
 
-        <div class="flex">
-          <div class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
-            <img src="@/assets/images/eyes.png" alt="" class="pic-auto" />
-          </div>
-          <div class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
-            <img src="@/assets/images/check.png" alt="" class="pic-auto" />
-          </div>
-          <div class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
-            <img src="@/assets/images/trash.png" alt="" class="pic-auto" />
+          <div class="flex">
+            <button
+              class="w-[36px] h-[36px] rounded-full overflow-hidden m-3"
+              @click="showInfoRecord"
+            >
+              <img src="@/assets/images/eyes.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/check.png" alt="" class="pic-auto" />
+            </button>
+            <button class="w-[36px] h-[36px] rounded-full overflow-hidden m-3">
+              <img src="@/assets/images/trash.png" alt="" class="pic-auto" />
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 詳細紀錄視窗 -->
+    <infoRecord v-show="isShowInfoRecord" @closeInfoModal="isShowInfoRecord = false" />
   </div>
 </template>
 
