@@ -1,7 +1,11 @@
 <script setup></script>
 
 <template>
-  <div class="text-green-4">隨機抽美食</div>
+  <div class="search-bar">
+    <a href="#" class="text-green-4">隨機抽美食</a>
+    <a href="#" class="text-green-4">抽公開美食</a>
+    <a href="#" class="text-green-4">隨機抽類別</a>
+  </div>
 </template>
 
 <style scoped>
