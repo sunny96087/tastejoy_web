@@ -58,6 +58,21 @@ const router = createRouter({
       component: () => import('../views/FriendList.vue')
     },
     {
+      path: '/randomfood',
+      name: 'randomfood',
+      component: () => import('../views/RandomFoodPicker.vue')
+    },
+    {
+      path: '/publicfood',
+      name: 'publicfood',
+      component: () => import('../views/PublicFoodSelector.vue')
+    },
+    {
+      path: '/randomcategory',
+      name: 'randomcategory',
+      component: () => import('../views/RandomCategoryPicker.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/'
     }

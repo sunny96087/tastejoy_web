@@ -32,7 +32,7 @@ const clickMenu = () => {
           <RouterLink to="/record" class="text-[#6F6D55]">我的紀錄</RouterLink>
         </li>
         <li class="m-5">
-          <RouterLink to="/" class="text-[#6F6D55]">今天吃什麼</RouterLink>
+          <RouterLink to="/randomfood" class="text-[#6F6D55]">今天吃什麼</RouterLink>
         </li>
         <li class="m-5">
           <RouterLink to="/article" class="text-[#6F6D55]">美食文章</RouterLink>
