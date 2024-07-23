@@ -41,6 +41,9 @@ export default {
           3: '#87835d',
           4: '#6f6d55'
         },
+        white: {
+          1: '#FFFDF6'
+        },
         orange: {
           1: '#F9BC75'
         },
