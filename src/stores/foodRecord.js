@@ -45,14 +45,14 @@ export const useFoodRecordStore = defineStore('record', () => {
   );
   // 依照logini token取得food record
   const getFoodRecords = ((token)=>{
-    let foodRecords = [];
-    axios.get('https://tastejoy-api.onrender.com/food-record/logged-in')
-      .then((res)=> {
-        foodRecords = res.data
-      }).catch((err)=>{
-        // TODO錯誤處理
-        console.log(err)
-      })
+    // let foodRecords = [];
+    // axios.get('https://tastejoy-api.onrender.com/food-record/logged-in')
+    //   .then((res)=> {
+    //     foodRecords = res.data
+    //   }).catch((err)=>{
+    //     // TODO錯誤處理
+    //     console.log(err)
+    //   })
     return records;
   })  
   

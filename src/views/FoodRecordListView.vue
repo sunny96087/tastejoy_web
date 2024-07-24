@@ -76,7 +76,6 @@ import { RouterLink,useRoute } from 'vue-router';
   const isShowInfoRecord = ref(false)
   const showInfoRecord = (foodRecordData)=> {
     foodRecordInfo = foodRecordData
-    console.log('11111',foodRecordInfo)
     isShowInfoRecord.value = true
   }
   // 取得美食紀錄資料 TODO:TOKEN API

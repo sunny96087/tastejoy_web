@@ -27,10 +27,6 @@ onMounted(() => {
       }
     });
 
-  // 取得美食紀錄資料 TODO:TOKEN API
-  const token = ref('')
-  const records = useFoodRecordStore().getFoodRecords(token)
-
 </script>
 
 <template>

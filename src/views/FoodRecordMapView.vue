@@ -2,6 +2,7 @@
 
 import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue'
 import { useCountryStore } from '../stores/country.js'
+import { useFoodRecordStore } from '../stores/foodRecord.js';
 import { RouterLink,useRoute } from 'vue-router';
 import addRecord from './FoodRecordAdd.vue'
 import infoRecord from './FoodRecordInfo.vue'
@@ -46,31 +47,10 @@ import mapTool from './FoodMapView.vue'
     isShowInfoRecord.value = true
   }
 
-  // 取得美食紀錄資料 TODO:API
-  let isNoData = false;
-  const records = ref(
-    [
-      {
-        name: '海底撈',
-        tag: '火鍋',
-        place: '高雄巨蛋',
-        businessTime: '10:00-24:00',
-        phone: '07-123456',
-        score:'4/5',
-      },
-      {
-        name: '王品',
-        tag: '排餐',
-        place: '高雄駁愛路',
-        businessTime: '10:00-24:00',
-        phone: '07-987654',
-        score:'3/5',
-      },
-    ]
-  );
-  if(records.value.length === 0){
-    isNoData = true;
-  }
+  // 取得美食紀錄資料 TODO:TOKEN API
+  const token = ref('')
+  const records = useFoodRecordStore().getFoodRecords(token)
+
 </script>
 
 <template>
