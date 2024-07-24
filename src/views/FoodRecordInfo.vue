@@ -1,5 +1,6 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, reactive, watch } from 'vue'
+  import { useFoodRecordStore } from '../stores/foodRecord.js'
   
   // 按下關閉按鈕回傳選單關閉給父組件
   const emit = defineEmits(["closeInfoModal"])
@@ -18,25 +19,20 @@
     isEditable.value = false
   }
 
-  // TODO需拿資料
-  const formData = ref({
-    image:'',
-    store: '海底撈',
-    phone: '07-111111',
-    foodName: '牛肉',
-    description: '好好吃',
-    date: '2024-07-17',
-    category: '火鍋',
-    score: '',
-    thoughts: 'yummy',
-    note: 'yummy',
-    businessHour:'0900~2400',
-    storeNote:'yummy',
-    country:'',
-    address:'高雄博愛路',
-    location:'1777號',
-    isPublic:'',
+  // 從父組件拿取該詳細資料
+  const props = defineProps({
+    record:{
+      type: Object,
+      default: ()=> ({}),
+    },
   })
+  const formData = reactive({});
+  
+  watch(() => props.record, (newValue) => {
+    // 收到新資料後 重新賦值
+    Object.assign(formData, newValue);
+  });
+
 
 </script>
 

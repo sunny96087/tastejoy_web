@@ -1,7 +1,8 @@
 <script setup>
 
-import { ref,watch,computed,onMounted,onBeforeUnmount } from 'vue'
+import { ref,watch,computed,onMounted,onBeforeUnmount,reactive } from 'vue'
 import { useCountryStore } from '../stores/country.js'
+import { useFoodRecordStore } from '../stores/foodRecord.js'
 import addRecord from '../views/FoodRecordAdd.vue'
 import infoRecord from '../views/FoodRecordInfo.vue'
 import { RouterLink,useRoute } from 'vue-router';
@@ -71,33 +72,17 @@ import { RouterLink,useRoute } from 'vue-router';
   }
 
   // 紀錄詳細按鈕
+  let foodRecordInfo = reactive()
   const isShowInfoRecord = ref(false)
-  const showInfoRecord = ()=> {
+  const showInfoRecord = (foodRecordData)=> {
+    foodRecordInfo = foodRecordData
+    console.log('11111',foodRecordInfo)
     isShowInfoRecord.value = true
   }
-
-  // 取得美食紀錄資料 TODO:API
+  // 取得美食紀錄資料 TODO:TOKEN API
   let isNoData = false;
-  const records = ref(
-    [
-      {
-        name: '海底撈',
-        tag: '火鍋',
-        place: '高雄巨蛋',
-        businessTime: '10:00-24:00',
-        phone: '07-123456',
-        score:'4/5',
-      },
-      {
-        name: '王品',
-        tag: '排餐',
-        place: '高雄駁愛路',
-        businessTime: '10:00-24:00',
-        phone: '07-987654',
-        score:'3/5',
-      },
-    ]
-  );
+  const token = ref('')
+  const records = useFoodRecordStore().getFoodRecords(token)
   if(records.value.length === 0){
     isNoData = true;
   }
@@ -107,7 +92,7 @@ import { RouterLink,useRoute } from 'vue-router';
   <!-- 新增紀錄視窗 -->
   <addRecord v-show="isShowAddRecord" @closeAddModal="isShowAddRecord = false"/>
   <!-- 詳細紀錄視窗 -->
-  <infoRecord v-show="isShowInfoRecord" @closeInfoModal="isShowInfoRecord = false"/>
+  <infoRecord v-show="isShowInfoRecord" @closeInfoModal="isShowInfoRecord = false" :record = "foodRecordInfo" />
 
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
     <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
@@ -186,14 +171,14 @@ import { RouterLink,useRoute } from 'vue-router';
         <tbody>
           <tr v-for="(record,index) in records" :key="index"
           class="text-left border-b border-b-[#E4E4E7]">
-            <td class="p-3">{{ record.name }}</td>
-            <td class="p-3">{{ record.tag }}</td>
-            <td class="p-3">{{ record.place }}</td>
-            <td class="p-3">{{ record.businessTime }}</td>
+            <td class="p-3">{{ record.store }}</td>
+            <td class="p-3">{{ record.category }}</td>
+            <td class="p-3">{{ record.address }}</td>
+            <td class="p-3">{{ record.businessHour }}</td>
             <td class="p-3">{{ record.phone }}</td>
             <td class="p-3">{{ record.score }}</td>
             <td class="p-3">
-              <button @click="showInfoRecord">
+              <button @click="showInfoRecord(record)">
                 <img src="../assets/images/FoodRecordList/checkButton.png" alt="check-icon" style="width:28px; height:28px;">   
               </button>
               

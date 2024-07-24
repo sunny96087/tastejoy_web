@@ -3,29 +3,33 @@ import { onMounted } from 'vue';
 import L from 'leaflet';
 
 onMounted(() => {
-      // 获取用户当前位置
+      // 獲取用户當前位置
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
           const { latitude, longitude } = position.coords;
-          const map = L.map('map').setView([latitude, longitude], 13);
+          const map = L.map('map').setView([latitude, longitude], 19);
 
           // 添加 OpenStreetMap 图层
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           }).addTo(map);
 
-          // 添加一个标记到用户当前位置
+          // 添加一个mark用户當前位置
           L.marker([latitude, longitude]).addTo(map)
-            .bindPopup('You are here!')
+            .bindPopup('現在位置!')
             .openPopup();
         }, error => {
           console.error(error);
-          alert('Unable to retrieve your location');
+          alert('無法定位到您現在的位置！！');
         });
       } else {
-        alert('Geolocation is not supported by this browser.');
+        alert('定位服務不支持當前瀏覽器');
       }
     });
+
+  // 取得美食紀錄資料 TODO:TOKEN API
+  const token = ref('')
+  const records = useFoodRecordStore().getFoodRecords(token)
 
 </script>
 
