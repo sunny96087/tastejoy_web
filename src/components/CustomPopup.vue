@@ -49,7 +49,6 @@ const props = defineProps({
             </td>
             <td class="border-t px-4 py-2">
                 <button>
-                    
                     <img src="../assets/images/FoodRecordList/NavButton.png" alt="nav-icon" style="width:28px; height:28px;">
                 </button>
             </td>

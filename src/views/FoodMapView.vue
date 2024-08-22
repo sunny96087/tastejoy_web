@@ -124,7 +124,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="map" style="height: 100vh;"></div>
+  <div id="map" style="height: 80vh;"></div>
 </template>
 
 <style>

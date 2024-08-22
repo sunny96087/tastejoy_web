@@ -86,7 +86,7 @@ import mapTool from './FoodMapView.vue'
       </div>
     
     </header>
-    <main class="h-screen w-11/12 mx-auto text-[#6F6D55] border-2 border-[#a49d7d] rounded-xl">
+    <main class="h- w-10/12 mx-auto text-[#6F6D55] border-2 border-[#a49d7d] rounded-xl">
       <mapTool/>
       
     </main>
