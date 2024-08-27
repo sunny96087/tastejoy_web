@@ -85,6 +85,7 @@ import { RouterLink,useRoute } from 'vue-router';
   if(records.value.length === 0){
     isNoData = true;
   }
+  
 </script>
 
 <template>
@@ -200,19 +201,19 @@ import { RouterLink,useRoute } from 'vue-router';
       <div v-show="isSmallScreen" class="w-11/12 mx-auto mb-2 border-2 border-[#a49d7d] rounded-xl" v-for="(record,index) in records" :key="index">
         <div class="border-b-2">
           <span class="inline-block w-24 text-left px-2 py-4">名稱</span>
-          <span class="inline-block px-2 py-4">{{ record.name }}</span>
+          <span class="inline-block px-2 py-4">{{ record.store }}</span>
         </div>
         <div class="border-b-2">
           <span class="inline-block w-24 text-left px-2 py-4">分類</span>
-          <span class="inline-block px-2 py-4">{{ record.tag }}</span>
+          <span class="inline-block px-2 py-4">{{ record.category }}</span>
         </div>
         <div class="border-b-2">
           <span class="inline-block w-24 text-left px-2 py-4">地點</span>
-          <span class="inline-block px-2 py-4">{{ record.place }}</span>
+          <span class="inline-block px-2 py-4">{{ record.address }}</span>
         </div>
         <div class="border-b-2">
           <span class="inline-block w-24 text-left px-2 py-4">營業時間</span>
-          <span class="inline-block px-2 py-4">{{ record.businessTime }}</span>
+          <span class="inline-block px-2 py-4">{{ record.businessHour }}</span>
         </div>
         <div class="flex justify-end">
           <button class="mr-4" @click="showInfoRecord">

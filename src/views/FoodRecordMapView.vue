@@ -18,7 +18,33 @@ import mapTool from './FoodMapView.vue'
     isMapView.value = route.path === '/graph';
   };
 
+  // 是否要顯示功能表
+  const isMenuOpen = ref(false);
+   // 判斷當前銀幕是否為小銀幕(below 768px)
+  const isSmallScreen = ref(false);
+  // 小銀幕中是否展開功能列表
+  // 預設是不展開
+  const isMobileMenuOpen = ref(false);
+  
+  const checkScreenSize = () => {
+    isSmallScreen.value = window.matchMedia('(max-width: 768px)').matches;
+    if (!isSmallScreen.value) {
+      isMenuOpen.value = true; // 當螢幕尺寸大於768px時，自動顯示選單
+    }
+  };
+
+  const toggleMenu = () => {
+    isMenuOpen.value = !isMenuOpen.value;
+    // 按下按鈕會toggle狀態
+    isMobileMenuOpen.value = !isMobileMenuOpen.value;
+  };
+
+  const shouldShowMenu = computed(() => {
+    return isMenuOpen.value || !isSmallScreen.value;
+  });
+
   onMounted(()=>{
+    checkScreenSize();
     updateView();
   });
 
@@ -60,7 +86,7 @@ import mapTool from './FoodMapView.vue'
   <infoRecord v-show="isShowInfoRecord" @closeInfoModal="isShowInfoRecord = false"/>
 
   <div class="max-w-7xl mx-auto my-0 bg-custom-color relative">
-    <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-around">
+    <header class="w-11/12 mx-auto mb-4 pt-4 relative md:flex justify-between">
       <div class="w-36 p-1 mb-2 border-2 border-[#a49d7d] rounded-full overflow-auto md:w-auto md:mb-0 flex items-center">
         <RouterLink to="/record" 
         :class="['cursor-pointer px-4 py-2 text-custom-switch-color border-b-0 border-gray-400 rounded-full', { 'bg-[#6b6142] text-white': isListView }]"
@@ -75,18 +101,52 @@ import mapTool from './FoodMapView.vue'
         </RouterLink>
       </div>
 
-      <div class="w-full mb-2 p-1 border-2 border-[#a49d7d] rounded-full flex justify-between md:w-1/2 md:mb-0">
+      <!-- 手機版收合展開功能按鈕 -->
+      <div class="absolute top-7 right-0 md:hidden">
+        <div v-if="isMobileMenuOpen" class="flex justify-center">
+          <span class="font-light text-[#BDB890] text-right mr-4">收合</span>
+          <button @click="toggleMenu">
+            <img src="../assets/images/FoodRecordList/downArrow.png" alt="open" style="width:20px;height:20px;">
+          </button>
+        </div>
+        
+        <div v-else class="flex justify-center">
+          <span class="font-light text-[#BDB890] text-right mr-4">更多功能</span>
+          <button @click="toggleMenu">
+            <img src="../assets/images/FoodRecordList/rightArrow.png" alt="close" style="width:30px;height:30px;">
+          </button>
+        </div>
+      </div>
+
+      <div v-if="shouldShowMenu" class="mb-2 md:block w-3/5 md:mb-0 p-1 border-2 border-[#a49d7d] rounded-full flex justify-between">
         <input class="p-2 ml-2 text-[#a49d7d] border-0 border-[#FFFDF6] bg-[#FFFDF6]" type="text" placeholder="搜尋美食記錄">
         <button class="p-2 bg-[#FFFDF6] rounded-full border-0 cursor-pointer">
           <img src="../assets/images/FoodRecordList/search.png" alt="search-icon" style="width:20px; height:20px;">
         </button>
       </div>
-      <div  class="w-full flex justify-end md:w-1/6">
+
+      <div v-if=shouldShowMenu class="w-full mb-2 border-2 border-[#a49d7d] rounded-full overflow-hidden p-2 md:hidden">
+        <select class="border-0 text-[#a49d7d] bg-[#FFFDF6] md: block" v-model="selectedCountry">  
+          <option value="全部地區">全部地區</option>
+          <option v-for="(country,id) in countries" :key="id" :value="country">
+            {{ country }}
+          </option>
+        </select>
+        <select class="border-0 text-[#a49d7d] bg-[#FFFDF6] md: block" v-model="selectedTown">
+          <option value="全部地區">全部地區</option>
+          <option v-for="(town,id) in towns" :key="id" :value="town">
+            {{ town }}
+          </option>
+        </select>
+      </div>
+
+      <div  v-if="shouldShowMenu" class="md:block w-full flex justify-end md:w-1/6">
         <button @click="showAddRecord" class="w-1/6 p-2 text-[#a49d7d] cursor-pointer border-2 border-[#a49d7d] rounded-full bg-[#6F6D55] md:w-full">新增</button>
       </div>
     
     </header>
-    <main class="h- w-10/12 mx-auto text-[#6F6D55] border-2 border-[#a49d7d] rounded-xl">
+    <main class="h- w-11/12 mx-auto text-[#6F6D55] border-2 border-[#a49d7d] rounded-xl">
+      <!-- 地圖的部分 -->
       <mapTool/>
       
     </main>
